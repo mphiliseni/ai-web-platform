@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Web Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        {% if response %}
+            <div class="message user"><strong>You:</strong> {{ request.form['prompt'] }}</div>
+            <div class="message ai"><strong>Mistral:</strong> {{ response }}</div>
+        {% endif %}
+    </div>
+
+    <form class="chat-form" method="post">
+        <textarea name="prompt" placeholder="Type your message..." required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
